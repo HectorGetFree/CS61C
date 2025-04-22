@@ -3,3 +3,14 @@
 # Lines starting with # are comments, feel free to add any to document your commands
 
 # Please add your commands below this line
+start 
+next
+until check_password
+step
+step
+print password
+finish
+step
+until 45
+print $v0
+print length
