@@ -32,8 +32,12 @@ main:
 #     where ^ is the exponent operator, not XOR
 ex2:
     # Note: Add code BELOW without altering existing lines.
+    # 每一次执行我们都要保存相应的s寄存器以及ra寄存器
+    # 如果不保存s，会导致结果错误 -- 这里不保存s0实际上也可以，反正他的值不变
+    # 不保存ra则无限循环
+    addi sp, sp, -8
     sw s0 0(sp)
-
+    sw ra 4(sp)
     # return 1 if a1 == 0
     beq a1 x0 ex2_zero_case
 
@@ -52,6 +56,8 @@ ex2_zero_case:
     li a0 1
 
 ex2_end:
+    lw ra 4(sp)
     lw s0 0(sp)
+    addi sp, sp, 8
 
     jr ra
