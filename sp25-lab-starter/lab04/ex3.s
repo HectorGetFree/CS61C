@@ -32,7 +32,13 @@ main:
 #     where ^ is the exponent operator, not XOR
 ex3:
     # Note: Add code BELOW without altering existing lines.
-
+    # 不要忽略a1的保存
+    # 在这里不保存a1是没有问题的，但是程序对每层递归调用的还原性不好
+    # 真正导致无限循环的是lw的调用位置
+    addi sp, sp, -12
+    sw ra, 0(sp)
+    sw t0, 4(sp)
+    sw a1, 8(sp)
     # return 1 if a1 == 0
     beq a1 x0 ex3_zero_case
 
@@ -45,12 +51,19 @@ ex3:
     mul a0 a0 t0  # multiply ex3(a0, a1-1) by t0
                   # (which contains the value of a0)
 
+    # 如果将lw逻辑放在这里
+    # 会导致ex3_zero_case情况下少lw一次ra
+    # 因而会多循环一次
     j ex3_end
-
     # Note: Add code ABOVE without altering existing lines.
 
 ex3_zero_case:
     li a0 1
 
 ex3_end:
+    lw a1, 8(sp)
+    lw t0, 4(sp)
+    lw ra, 0(sp)
+    addi sp, sp, 12
+
     jr ra
