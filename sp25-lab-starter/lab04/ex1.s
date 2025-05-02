@@ -50,6 +50,9 @@ next_test:
 pow:
     # BEGIN PROLOGUE
     # FIXME: Need to save the callee saved register(s)
+    addi sp, sp, -8
+    sw a0, 0(sp)
+    sw a1, 4(sp)
     # END PROLOGUE
     li s0, 1
 pow_loop:
@@ -61,6 +64,9 @@ pow_end:
     mv a0, s0
     # BEGIN EPILOGUE
     # FIXME: Need to restore the callee saved register(s)
+    lw a1, 4(sp)
+    lw a0, 0(sp)
+    addi sp, sp, 8
     # END EPILOGUE
     jr ra
 
@@ -112,12 +118,16 @@ inc_arr_end:
 helper_fn:
     # BEGIN PROLOGUE
     # FIXME: YOUR CODE HERE
+    addi sp, sp, -4
+    sw s0, 0(sp)
     # END PROLOGUE
     lw t1, 0(a0)
     addi s0, t1, 1
     sw s0, 0(a0)
     # BEGIN EPILOGUE
     # FIXME: YOUR CODE HERE
+    lw s0 0(sp)
+    addi sp, sp, 4
     # END EPILOGUE
     jr ra
 
