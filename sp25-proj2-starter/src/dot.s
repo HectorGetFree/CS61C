@@ -38,8 +38,8 @@ loop_start:
 
     lw t4, 0(t4)
     lw t5, 0(t5)
-    mul t6, t4, t5
-    add a0, a0, t6
+    mul t4, t4, t5
+    add a0, a0, t4
 
     add t0, t0, a3
     add t1, t1, a4
