@@ -61,7 +61,8 @@ write_matrix:
     li a2, 2
     li a3, 4
     jal fwrite
-    bne a0, a2, exit_2
+    li t0, 2
+    bne a0, t0, exit_2
     # wirte in the matrix
     mv a0, s0
     mv a1, s1
@@ -69,12 +70,14 @@ write_matrix:
     mv a2, s5
     li a3, 4
     jal fwrite
-    bne a0, s5, exit_2
+    mul t0, s2, s3
+    bne a0, t0, exit_2
 
     # close
     mv a0, s0
     jal fclose
-    bne a0, x0, exit_3
+    li t0, -1
+    beq a0, t0, exit_3
 
 
     # Epilogue
