@@ -24,16 +24,13 @@
 # ==============================================================================
 write_matrix:
     # Prologue
-    addi sp, sp, -36
-    sw s0, 0(sp)
-    sw s1, 4(sp)
-    sw s2, 8(sp)
-    sw s3, 12(sp)
-    sw s4, 16(sp)
-    sw s5, 20(sp)
-    sw s6, 24(sp)
-    sw s7, 28(sp)
-    sw ra, 32(sp)
+    addi sp, sp, -24
+    sw ra, 0(sp)
+    sw s0, 4(sp)
+    sw s1, 8(sp)
+    sw s2, 12(sp)
+    sw s3, 16(sp)
+    sw s4, 20(sp)
 
     # save the value
     mv s0, a0
@@ -45,52 +42,52 @@ write_matrix:
     mv a0, s0
     li a1, 1
     jal fopen
-    li s4, -1
-    beq a0, s4, exit_1
-    mv s0, a0
+    li t0, -1
+    beq a0, t0, exit_1
+    mv s4, a0
 
     # write the row and the col first
     # before that we should first store the data into the memory first
     # don't forget to use malloc
     li a0, 8
     jal malloc
-    sw s2, 0(a0)
-    sw s3, 4(a0)
-    mv a0, s0
-    mv a1, a0
-    li a2, 2
-    li a3, 4
+    # save the pointer
+    mv t1, a0        
+    sw s2, 0(t1)
+    sw s3, 4(t1)
+    mv a0, s4 
+    # if using mv a1, a0 
+    # notice that a0 has been replaced by s4       
+    mv a1, t1        
+    li a2, 2         
+    li a3, 4         
     jal fwrite
     li t0, 2
     bne a0, t0, exit_2
     # wirte in the matrix
-    mv a0, s0
+    mv a0, s4
     mv a1, s1
-    mul s5, s2, s3
-    mv a2, s5
+    mul a2, s2, s3
     li a3, 4
     jal fwrite
     mul t0, s2, s3
     bne a0, t0, exit_2
 
     # close
-    mv a0, s0
+    mv a0, s4
     jal fclose
     li t0, -1
     beq a0, t0, exit_3
 
 
     # Epilogue
-    lw ra, 32(sp)
-    lw s7, 28(sp)
-    lw s6, 24(sp)
-    lw s5, 20(sp)
-    lw s4, 16(sp)
-    lw s3, 12(sp)
-    lw s2, 8(sp)
-    lw s1, 4(sp)
-    lw s0, 0(sp)
-    addi sp, sp, 36
+    lw ra, 0(sp)
+    lw s0, 4(sp)
+    lw s1, 8(sp)
+    lw s2, 12(sp)
+    lw s3, 16(sp)
+    lw s4, 20(sp)
+	addi sp, sp, 24
     jr ra
 
 
