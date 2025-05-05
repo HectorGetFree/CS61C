@@ -138,7 +138,7 @@ classify:
     jal argmax
     mv s10, a0
     # If enabled, print argmax(o) and newline
-    li t0, 0
+    li t0, 1
     bne s1, t0, exit_pri
     mv a0, s10
     jal print_int
