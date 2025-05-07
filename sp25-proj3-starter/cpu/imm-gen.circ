@@ -452,7 +452,7 @@
       <a name="out_width" val="32"/>
     </comp>
     <comp lib="0" loc="(640,1190)" name="Tunnel">
-      <a name="label" val="U_imm"/>
+      <a name="label" val="J_imm"/>
       <a name="width" val="32"/>
     </comp>
     <comp lib="0" loc="(640,560)" name="Tunnel">
@@ -480,6 +480,11 @@
     <comp lib="0" loc="(760,430)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="U_imm"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(760,460)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="J_imm"/>
       <a name="width" val="32"/>
     </comp>
     <comp lib="0" loc="(800,330)" name="Tunnel">
@@ -582,6 +587,7 @@
     <wire from="(760,370)" to="(890,370)"/>
     <wire from="(760,400)" to="(850,400)"/>
     <wire from="(760,430)" to="(860,430)"/>
+    <wire from="(760,460)" to="(870,460)"/>
     <wire from="(800,330)" to="(850,330)"/>
     <wire from="(850,330)" to="(850,360)"/>
     <wire from="(850,360)" to="(890,360)"/>
@@ -589,6 +595,8 @@
     <wire from="(850,380)" to="(890,380)"/>
     <wire from="(860,390)" to="(860,430)"/>
     <wire from="(860,390)" to="(890,390)"/>
+    <wire from="(870,400)" to="(870,460)"/>
+    <wire from="(870,400)" to="(890,400)"/>
     <wire from="(910,440)" to="(910,490)"/>
     <wire from="(920,100)" to="(1110,100)"/>
     <wire from="(920,100)" to="(920,140)"/>
