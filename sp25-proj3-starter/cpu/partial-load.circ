@@ -33,7 +33,8 @@
       <a name="radix" val="16"/>
     </tool>
     <tool name="Tunnel">
-      <a name="width" val="8"/>
+      <a name="facing" val="north"/>
+      <a name="width" val="3"/>
     </tool>
     <tool name="Pull Resistor">
       <a name="facing" val="north"/>
@@ -42,8 +43,8 @@
       <a name="facing" val="north"/>
     </tool>
     <tool name="Constant">
-      <a name="value" val="0x0"/>
-      <a name="width" val="2"/>
+      <a name="value" val="0x3"/>
+      <a name="width" val="3"/>
     </tool>
     <tool name="Bit Extender">
       <a name="in_width" val="16"/>
@@ -441,7 +442,7 @@
     </comp>
     <comp lib="0" loc="(230,1750)" name="Tunnel">
       <a name="facing" val="east"/>
-      <a name="label" val="f3_11"/>
+      <a name="label" val="f3_2"/>
     </comp>
     <comp lib="0" loc="(230,260)" name="Pin">
       <a name="appearance" val="classic"/>
@@ -636,7 +637,7 @@
       <a name="label" val="f3_1"/>
     </comp>
     <comp lib="0" loc="(450,1450)" name="Tunnel">
-      <a name="label" val="f3_11"/>
+      <a name="label" val="f3_2"/>
     </comp>
     <comp lib="0" loc="(450,1550)" name="Tunnel">
       <a name="label" val="lb"/>
@@ -828,31 +829,31 @@
     <comp lib="3" loc="(960,980)" name="Comparator">
       <a name="width" val="2"/>
     </comp>
-    <comp lib="5" loc="(1082,1255)" name="Text">
+    <comp lib="5" loc="(1080,1255)" name="Text">
       <a name="text" val="get SignEXT type"/>
     </comp>
     <comp lib="5" loc="(150,100)" name="Text">
       <a name="text" val="INPUTS to your circuit"/>
     </comp>
-    <comp lib="5" loc="(1734,794)" name="Text">
+    <comp lib="5" loc="(1730,790)" name="Text">
       <a name="text" val="mapping"/>
     </comp>
-    <comp lib="5" loc="(1918,1270)" name="Text">
+    <comp lib="5" loc="(1915,1270)" name="Text">
       <a name="text" val="get bits"/>
     </comp>
-    <comp lib="5" loc="(2646,1039)" name="Text">
+    <comp lib="5" loc="(2645,1035)" name="Text">
       <a name="text" val="sign_EXT"/>
     </comp>
-    <comp lib="5" loc="(315,1164)" name="Text">
+    <comp lib="5" loc="(315,1160)" name="Text">
       <a name="text" val="get the type of the load instruction"/>
     </comp>
-    <comp lib="5" loc="(340,843)" name="Text">
+    <comp lib="5" loc="(340,840)" name="Text">
       <a name="text" val="Split the instruction"/>
     </comp>
     <comp lib="5" loc="(560,40)" name="Text">
       <a name="text" val="DON'T CHANGE THE LOCATIONS OF THE INPUTS AND OUTPUTS!"/>
     </comp>
-    <comp lib="5" loc="(928,789)" name="Text">
+    <comp lib="5" loc="(925,785)" name="Text">
       <a name="text" val="get bottom 2 bits"/>
     </comp>
     <comp lib="5" loc="(975,110)" name="Text">
