@@ -17,7 +17,7 @@
       <a name="radix" val="16"/>
     </tool>
     <tool name="Tunnel">
-      <a name="width" val="32"/>
+      <a name="width" val="2"/>
     </tool>
     <tool name="Pull Resistor">
       <a name="facing" val="north"/>
@@ -26,7 +26,8 @@
       <a name="facing" val="north"/>
     </tool>
     <tool name="Constant">
-      <a name="value" val="0x0"/>
+      <a name="value" val="0xff"/>
+      <a name="width" val="8"/>
     </tool>
   </lib>
   <lib desc="#Gates" name="1"/>
@@ -335,6 +336,12 @@
       <a name="facing" val="east"/>
       <a name="label" val="ROM_Input"/>
       <a name="width" val="6"/>
+    </comp>
+    <comp lib="0" loc="(1350,500)" name="Tunnel">
+      <a name="label" val="jal"/>
+    </comp>
+    <comp lib="0" loc="(1360,700)" name="Tunnel">
+      <a name="label" val="jalr"/>
     </comp>
     <comp lib="0" loc="(1370,1910)" name="Tunnel">
       <a name="label" val="is_sb"/>
@@ -992,7 +999,7 @@
       <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(830,1440)" name="Constant">
-      <a name="value" val="0x11"/>
+      <a name="value" val="0x67"/>
       <a name="width" val="7"/>
     </comp>
     <comp lib="0" loc="(860,1630)" name="Tunnel">
@@ -1107,7 +1114,7 @@
     <comp lib="1" loc="(1320,2720)" name="AND Gate"/>
     <comp lib="1" loc="(1320,2800)" name="AND Gate"/>
     <comp lib="1" loc="(1380,630)" name="OR Gate">
-      <a name="inputs" val="4"/>
+      <a name="inputs" val="6"/>
     </comp>
     <comp lib="1" loc="(320,1920)" name="AND Gate">
       <a name="inputs" val="3"/>
@@ -1244,7 +1251,7 @@
     </comp>
     <comp lib="5" loc="(1255,460)" name="Text">
       <a name="font" val="SansSerif plain 14"/>
-      <a name="text" val="PCSel is token only when it's B-format and according condition is true"/>
+      <a name="text" val="PCSel is token only when it's B-format and according condition is true and j format"/>
     </comp>
     <comp lib="5" loc="(170,90)" name="Text">
       <a name="text" val="INPUTS to your circuit"/>
@@ -1373,6 +1380,9 @@
     <wire from="(1300,610)" to="(1330,610)"/>
     <wire from="(1300,650)" to="(1300,780)"/>
     <wire from="(1300,650)" to="(1330,650)"/>
+    <wire from="(1310,500)" to="(1310,600)"/>
+    <wire from="(1310,500)" to="(1350,500)"/>
+    <wire from="(1310,600)" to="(1330,600)"/>
     <wire from="(1320,1910)" to="(1370,1910)"/>
     <wire from="(1320,2000)" to="(1370,2000)"/>
     <wire from="(1320,2100)" to="(1370,2100)"/>
@@ -1382,6 +1392,9 @@
     <wire from="(1320,2640)" to="(1370,2640)"/>
     <wire from="(1320,2720)" to="(1370,2720)"/>
     <wire from="(1320,2800)" to="(1370,2800)"/>
+    <wire from="(1320,660)" to="(1320,700)"/>
+    <wire from="(1320,660)" to="(1330,660)"/>
+    <wire from="(1320,700)" to="(1360,700)"/>
     <wire from="(1380,630)" to="(1430,630)"/>
     <wire from="(140,230)" to="(180,230)"/>
     <wire from="(150,1950)" to="(220,1950)"/>
