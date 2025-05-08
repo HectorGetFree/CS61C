@@ -1231,17 +1231,17 @@
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 6 16
 100f 140f 160f 108f 148f 158f 110f 120f
-128f 168f 130f 13cf 0 0 0 1041
-10c1 1141 1241 12c1 16c1 1341 13c1 0
-0 0 4*1064 1074 1074
+128f 168f 130f 13cf 41 41 41 1041
+10c1 1141 1241 12c1 16c1 1341 13c1 1043
+1043 1043 4*1064 1074 1074
 </a>
       <a name="dataWidth" val="16"/>
     </comp>
-    <comp lib="5" loc="(1258,428)" name="Text">
+    <comp lib="5" loc="(1255,425)" name="Text">
       <a name="font" val="SansSerif plain 14"/>
       <a name="text" val="Attention: Only B_format is true can't decide the PCSel."/>
     </comp>
-    <comp lib="5" loc="(1258,462)" name="Text">
+    <comp lib="5" loc="(1255,460)" name="Text">
       <a name="font" val="SansSerif plain 14"/>
       <a name="text" val="PCSel is token only when it's B-format and according condition is true"/>
     </comp>
