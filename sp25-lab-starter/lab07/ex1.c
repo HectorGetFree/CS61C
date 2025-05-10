@@ -98,39 +98,23 @@ long long int sum_simd_unrolled(int vals[NUM_ELEMS]) {
     for(unsigned int w = 0; w < OUTER_ITERATIONS; w++) {
         /* YOUR CODE GOES HERE */
         /* Copy your sum_simd() implementation here, and unroll it */
-        unsigned int j = 0;
         // 获得一个sum向量，初始化为{0, 0, 0, 0}
         __m128i sum_vec = _mm_setzero_si128();
 
-        for (unsigned int i = 0; i < NUM_ELEMS / 16 * 16; i += 16) {
-            // 将数组中的元素加载到临时的向量中
-            __m128i tmp1 = _mm_loadu_si128((__m128i *) (vals + j * 4));
-            __m128i tmp2 = _mm_loadu_si128((__m128i *) (vals + (j + 1) * 4));
-            __m128i tmp3 = _mm_loadu_si128((__m128i *) (vals + (j + 2) * 4));
-            __m128i tmp4 = _mm_loadu_si128((__m128i *) (vals + (j + 3) * 4));
-            // 进行比较
+        for (unsigned int i = 0; i < NUM_ELEMS / 8 * 8; i += 8) { // 步长改为 8
+            __m128i tmp1 = _mm_loadu_si128((__m128i *) (vals + i));
+            __m128i tmp2 = _mm_loadu_si128((__m128i *) (vals + i + 4));
             __m128i mask1 = _mm_cmpgt_epi32(tmp1, _127);
             __m128i mask2 = _mm_cmpgt_epi32(tmp2, _127);
-            __m128i mask3 = _mm_cmpgt_epi32(tmp3, _127);
-            __m128i mask4 = _mm_cmpgt_epi32(tmp4, _127);
-            // 将比较结果进行掩码筛选,得到不小于127的值
-            __m128i filtered1 = _mm_and_si128(tmp1, mask1);
-            __m128i filtered2 = _mm_and_si128(tmp2, mask2);
-            __m128i filtered3 = _mm_and_si128(tmp3, mask3);
-            __m128i filtered4 = _mm_and_si128(tmp4, mask4);
-            // 将筛选结果写入sum向量中
-            sum_vec = _mm_add_epi32(sum_vec, filtered1);
-            sum_vec = _mm_add_epi32(sum_vec, filtered2);
-            sum_vec = _mm_add_epi32(sum_vec, filtered3);
-            sum_vec = _mm_add_epi32(sum_vec, filtered4);
-            j += 4;
+            sum_vec = _mm_add_epi32(sum_vec, _mm_and_si128(tmp1, mask1));
+            sum_vec = _mm_add_epi32(sum_vec, _mm_and_si128(tmp2, mask2));
         }
         // 创建一个临时数组来容纳sum向量中的值
         int tmp_arr[4] = {0, 0, 0, 0};
         _mm_storeu_si128((__m128i *) tmp_arr, sum_vec);
         result += tmp_arr[0] + tmp_arr[1] + tmp_arr[2] + tmp_arr[3];
 
-        for (unsigned int i = NUM_ELEMS / 16 * 16; i < NUM_ELEMS; i++) {
+        for (unsigned int i = NUM_ELEMS / 8 * 8; i < NUM_ELEMS; i++) {
             if (vals[i] >= 128) {
                 result += vals[i];
             }
