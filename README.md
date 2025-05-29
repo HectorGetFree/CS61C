@@ -35,7 +35,7 @@
 
 ​	值得一提的是，Lab07尽管需要在hive machine上完成，而arm架构的mac无法对Intel的SIMD指令进行编译，所以我花了一点时间学习了 **docker** 来解决这个问题，最后是成功的😄
 
-​	还有由于gcc无法使用，**不得不更换工具链**，所以我对课程提供的部分**makefile**利用ChatGPT进行修改，并屏蔽了hash检测来使用makefile，请留意
+​	还有由于gdb无法使用，**不得不更换工具链**，所以我对课程提供的部分**makefile**利用ChatGPT进行修改，并屏蔽了hash检测来使用makefile，请留意
 
 ## 🛠️ Projs
 
